@@ -1,0 +1,204 @@
+@import '/styles/variables';
+
+.header {
+  padding-top: 32px !important;
+  padding-bottom: 0 !important;
+  border-bottom: 2px solid #F0F0F0;
+
+  .container {
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+
+    button {
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .logo {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    height: 32px;
+    width: 107px;
+    margin-right: 0;
+  }
+
+  :global(.react-select__container) {
+    display: none;
+    margin-top: 40px;
+    width: 125px;
+
+    .invalid-feedback {
+      font-size: 12px;
+    }
+
+    &.invalid {
+      border: 2px solid $red;
+      border-radius: 10px;
+    }
+  }
+
+  :global(.react-select__control) {
+    background: none !important;
+    border: none !important;
+  }
+
+  :global(.react-select__control--is-focused) {
+    box-shadow: none !important;
+  }
+
+  :global(.react-select__menu) {
+    z-index: 10;
+    border: none !important;
+    box-shadow: 0 0 0 1px hsl(0deg 0% 0% / 10%), 0 4px 11px hsl(0deg 0% 0% / 10%) !important;
+    border-radius: 4px !important;
+  }
+
+  :global(.react-select__value-container) {
+    padding: 0 !important;
+  }
+
+  .topLeft, .topRight {
+    display: flex;
+    justify-content: space-between;
+
+    .navLink {
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+      padding: 0 !important;
+
+      img {
+        padding-right: 12px !important;
+      }
+
+      &:not(:last-child) {
+        padding-right: 52px !important;
+      }
+
+      &.active {
+        color: #2F88F0;
+      }
+    }
+  }
+
+  .topRight {
+    width: 60%;
+    justify-content: flex-end;
+
+    .navLink {
+      position: relative;
+
+      &:not(:last-child) {
+        padding-right: 40px !important;
+      }
+
+      .wrapper {
+        position: absolute;
+        top: 100%;
+        right: -10%;
+
+        .body {
+          z-index: 10;
+          filter: drop-shadow(0px 6px 26px rgba(0, 0, 0, 0.1));
+          position: relative;
+          width: 328px;
+          height: 136px;
+        }
+      }
+    }
+  }
+
+  .nav {
+    padding: 40px 0 26px 0;
+
+    .navLink {
+      font-weight: 400;
+      padding: 0 !important;
+
+      &:not(:last-child) {
+        padding-right: 52px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .header {
+    :global(.navbar-nav) {
+      flex-direction: row;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .container {
+      margin-top: -40px;
+    }
+
+    .logo, .topLeft, .topRight {
+      margin-top: 40px;
+    }
+
+    .topRight {
+      width: auto;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .header {
+    .topRight {
+      margin-bottom: 40px;
+    }
+
+    .nav {
+      padding-top: 0;
+
+      .navLink {
+        &:not(:last-child) {
+          margin-bottom: 24px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    .topRight {
+      flex-direction: column;
+
+      .navLink {
+        &:not(:last-child) {
+          margin-bottom: 24px;
+        }
+
+        .wrapper {
+          right: -50%;
+
+          .body {
+            width: 300px;
+          }
+        }
+      }
+    }
+
+    :global(.navbar-toggler) {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .header {
+    :global(.react-select__container) {
+      display: flex;
+    }
+
+    .topLeft {
+      display: none;
+    }
+  }
+}
